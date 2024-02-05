@@ -61,12 +61,12 @@ bool isvalidnum(const char *str) {
 int main(int argc, char *argv[]) {
   if (argc < 2) {
     printf("Usage: %s <number>\n", argv[0]);
-    return 1;
+    return EXIT_FAILURE;
   }
 
   if (!isvalidnum(argv[1])) {
     printf("Invalid number: %s\n", argv[1]);
-    return 1;
+    return EXIT_FAILURE;
   }
 
   unsigned long long n = atoll(argv[1]);
@@ -77,5 +77,5 @@ int main(int argc, char *argv[]) {
     fib[0] = tmp;
   }
   printf("fib(%llu) = %llu\n", n, fib[1]);
-  return 0;
+  return EXIT_SUCCESS;
 }
