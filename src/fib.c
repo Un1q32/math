@@ -69,12 +69,13 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  int n = atoi(argv[1]);
-  int fib[n];
-  fib[0] = 0;
-  fib[1] = 1;
-  for (int i = 2; i < n; i++)
-    fib[i] = fib[i - 1] + fib[i - 2];
-  printf("fib(%d) = %d\n", n, fib[n - 1]);
+  unsigned long long n = atoll(argv[1]);
+  unsigned long long fib[2] = {0, 1};
+  for (unsigned long long i = 2; i < n; i++) {
+    unsigned long long tmp = fib[1];
+    fib[1] = fib[0] + fib[1];
+    fib[0] = tmp;
+  }
+  printf("fib(%llu) = %llu\n", n, fib[1]);
   return 0;
 }
