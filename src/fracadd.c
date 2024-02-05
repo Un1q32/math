@@ -97,6 +97,13 @@ int main(int argc, char *argv[]) {
       gcd = i;
   num /= gcd;
   den /= gcd;
-  printf("%lld/%lld\n", num, den);
+  if (num < den)
+    printf("%lld/%lld\n", num, den);
+  else {
+    printf("Improper fraction: %lld/%lld\n", num, den);
+    long long whole = num / den;
+    num %= den;
+    printf("%lld %lld/%lld\n", whole, num, den);
+  }
   return EXIT_SUCCESS;
 }
