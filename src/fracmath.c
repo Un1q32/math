@@ -59,9 +59,7 @@ bool isvalidnum(const char *str) {
   return true;
 }
 
-void fracadd(long long num1, long long den1, long long num2, long long den2) {
-  long long num = num1 * den2 + num2 * den1;
-  long long den = den1 * den2;
+void printfrac(long long num, long long den) {
   long long gcd = 1;
   for (long long i = 1; i <= num && i <= den; i++)
     if (num % i == 0 && den % i == 0)
@@ -81,6 +79,30 @@ void fracadd(long long num1, long long den1, long long num2, long long den2) {
       printf("%lld\n", whole);
     printf("Improper fraction: %lld/%lld\n", oldnum, oldden);
   }
+}
+
+void fracadd(long long num1, long long den1, long long num2, long long den2) {
+  long long num = num1 * den2 + num2 * den1;
+  long long den = den1 * den2;
+  printfrac(num, den);
+}
+
+void fracsub(long long num1, long long den1, long long num2, long long den2) {
+  long long num = num1 * den2 - num2 * den1;
+  long long den = den1 * den2;
+  printfrac(num, den);
+}
+
+void fracmul(long long num1, long long den1, long long num2, long long den2) {
+  long long num = num1 * num2;
+  long long den = den1 * den2;
+  printfrac(num, den);
+}
+
+void fracdiv(long long num1, long long den1, long long num2, long long den2) {
+  long long num = num1 * den2;
+  long long den = den1 * num2;
+  printfrac(num, den);
 }
 
 int main(int argc, char *argv[]) {
@@ -123,14 +145,14 @@ int main(int argc, char *argv[]) {
     fracadd(num1, den1, num2, den2);
     break;
   case '-':
-    // fracsub(num1, den1, num2, den2);
-    // break;
+    fracsub(num1, den1, num2, den2);
+    break;
   case '*':
-    // fracmul(num1, den1, num2, den2);
-    // break;
+    fracmul(num1, den1, num2, den2);
+    break;
   case '/':
-    // fracdiv(num1, den1, num2, den2);
-    // break;
+    fracdiv(num1, den1, num2, den2);
+    break;
   default:
     printf("Invalid operation: %c\n", operation);
     return EXIT_FAILURE;
