@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
+#undef __DARWIN_NO_LONG_LONG
 #include <stdlib.h>
 
 #include <owomath.h>

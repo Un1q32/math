@@ -4,9 +4,8 @@ _REQFLAGS := -std=c89 -Iinclude
 
 SRCS := $(wildcard src/*.c)
 OBJS := $(SRCS:.c=.o)
-TESTSRC := $(wildcard tests/*.c)
-TESTEXES := $(TESTSRCS:.c=)
-TESTEXES := $(subst tests,tests/bin,$(TESTEXES))
+TESTSRCS := $(wildcard tests/*.c)
+TESTEXES := $(TESTSRCS:tests/%.c=tests/bin/%)
 
 ifndef VERBOSE
 V := @

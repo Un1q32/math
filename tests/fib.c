@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
+#undef __DARWIN_NO_LONG_LONG
 #include <stdlib.h>
 
 #include <owomath.h>
@@ -17,7 +18,8 @@ int main(int argc, char *argv[]) {
 
   unsigned long long n = atoll(argv[1]);
   unsigned long long fib[2] = {0, 1};
-  for (unsigned long long i = 2; i < n; i++) {
+  unsigned long long i;
+  for (i = 2; i < n; i++) {
     unsigned long long tmp = fib[1];
     fib[1] = fib[0] + fib[1];
     fib[0] = tmp;
