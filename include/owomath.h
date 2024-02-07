@@ -7,9 +7,13 @@ struct fraction {
   long long num, den;
 };
 
+struct divresult {
+  long long quot, rem;
+};
+
 extern bool isvalidnum(const char *);
 
-extern long long divrem(long long, long long, long long *);
+extern struct divresult divrem(long long, long long);
 
 extern struct fraction fracadd(struct fraction, struct fraction);
 extern struct fraction fracsub(struct fraction, struct fraction);

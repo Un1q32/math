@@ -24,12 +24,11 @@ int main(int argc, const char *argv[]) {
   long long ac = a;
   long long bc = b;
 
-  long long rem;
-  long long quotent = divrem(a, b, &rem);
+  struct divresult result = divrem(a, b);
 
-  printf("%lld / %lld = %lld", ac, bc, quotent);
-  if (rem > 0)
-    printf(" R%lld", rem);
+  printf("%lld / %lld = %lld", ac, bc, result.quot);
+  if (result.rem > 0)
+    printf(" R%lld", result.rem);
   putchar('\n');
   return EXIT_SUCCESS;
 }

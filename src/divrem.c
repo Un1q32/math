@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long long divrem(long long dividend, long long divisor, long long *rem) {
+#include <owomath.h>
+
+struct divresult divrem(long long dividend, long long divisor) {
+    struct divresult result;
     if (divisor == 0) {
         puts("Cannot divide by zero");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
-    long long quotient = dividend / divisor;
-    *rem = dividend % divisor;
-    return quotient;
+    result.quot = dividend / divisor;
+    result.rem = dividend % divisor;
+    return result;
 }
