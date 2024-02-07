@@ -19,6 +19,11 @@ extern struct fraction fracadd(struct fraction, struct fraction);
 extern struct fraction fracsub(struct fraction, struct fraction);
 extern struct fraction fracmul(struct fraction, struct fraction);
 extern struct fraction fracdiv(struct fraction, struct fraction);
+extern bool fraceq(struct fraction, struct fraction);
+extern bool fracle(struct fraction, struct fraction);
+extern bool fracge(struct fraction, struct fraction);
+extern bool fracgt(struct fraction, struct fraction);
+extern bool fraclt(struct fraction, struct fraction);
 
 extern void printfraction(struct fraction);
 

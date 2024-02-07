@@ -52,6 +52,21 @@ int main(int argc, char *argv[]) {
   case '/':
     printfraction(fracdiv(f1, f2));
     break;
+  case '>':
+    if (argv[2][1] == '=')
+      printf("%s\n", fracge(f1, f2) ? "true" : "false");
+    else
+      printf("%s\n", fracgt(f1, f2) ? "true" : "false");
+    break;
+  case '<':
+    if (argv[2][1] == '=')
+      printf("%s\n", fracle(f1, f2) ? "true" : "false");
+    else
+      printf("%s\n", fraclt(f1, f2) ? "true" : "false");
+    break;
+  case '=':
+    printf("%s\n", fraceq(f1, f2) ? "true" : "false");
+    break;
   default:
     printf("Invalid operation: %c\n", operation);
     return EXIT_FAILURE;

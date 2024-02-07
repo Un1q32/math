@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 
 #include <owomath.h>
@@ -28,6 +29,26 @@ struct fraction fracdiv(struct fraction f1, struct fraction f2) {
   f.num = f1.num * f2.den;
   f.den = f1.den * f2.num;
   return f;
+}
+
+bool fraceq(struct fraction f1, struct fraction f2) {
+  return f1.num * f2.den == f2.num * f1.den;
+}
+
+bool fraclt(struct fraction f1, struct fraction f2) {
+  return f1.num * f2.den < f2.num * f1.den;
+}
+
+bool fracgt(struct fraction f1, struct fraction f2) {
+  return f1.num * f2.den > f2.num * f1.den;
+}
+
+bool fracle(struct fraction f1, struct fraction f2) {
+  return f1.num * f2.den <= f2.num * f1.den;
+}
+
+bool fracge(struct fraction f1, struct fraction f2) {
+  return f1.num * f2.den >= f2.num * f1.den;
 }
 
 void printfraction(struct fraction f) {
