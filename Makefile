@@ -11,15 +11,17 @@ ifndef VERBOSE
 V := @
 endif
 
-.PHONY := all debug clean tests clangd
+.PHONY := all debug clean tests debugtests clangd
 
 all: libowomath.a
 
 debug: OPTFLAGS := -g
 debug: all
 
-tests: OPTFLAGS := -g
 tests: all $(TESTEXES)
+
+debugtests: OPTFLAGS := -g
+debugtests: all $(TESTEXES)
 
 libowomath.a: $(OBJS)
 	@printf " \033[1;34mAR\033[0m libowomath.a\n"
