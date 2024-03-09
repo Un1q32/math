@@ -2,7 +2,7 @@
 #undef __DARWIN_NO_LONG_LONG
 #include <stdlib.h>
 
-#include <owomath.h>
+#include <uniqmath.h>
 
 void findfactors(long long num) {
     long long i;

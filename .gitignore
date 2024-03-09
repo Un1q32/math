@@ -2,3 +2,4 @@ libowomath.a
 *.o
 .clangd
 /tests/bin
+.DS_Store

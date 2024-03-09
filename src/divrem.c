@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <owomath.h>
+#include <uniqmath.h>
 
 struct divresult divrem(long long dividend, long long divisor) {
     struct divresult result;

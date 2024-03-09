@@ -3,7 +3,7 @@
 #undef __DARWIN_NO_LONG_LONG
 #include <stdlib.h>
 
-#include <owomath.h>
+#include <uniqmath.h>
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {

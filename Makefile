@@ -13,7 +13,7 @@ endif
 
 .PHONY := all debug clean tests debugtests clangd
 
-all: libowomath.a
+all: libuniqmath.a
 
 debug: OPTFLAGS := -g
 debug: all
@@ -23,22 +23,22 @@ tests: all $(TESTEXES)
 debugtests: OPTFLAGS := -g
 debugtests: all $(TESTEXES)
 
-libowomath.a: $(OBJS)
-	@printf " \033[1;34mAR\033[0m libowomath.a\n"
-	$(V)$(AR) rcs libowomath.a $(OBJS)
+libuniqmath.a: $(OBJS)
+	@printf " \033[1;34mAR\033[0m libuniqmath.a\n"
+	$(V)$(AR) rcs libuniqmath.a $(OBJS)
 
 %.o: %.c
-	@src=$<; src=$${src##*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"
+	@src=$@; src=$${src##*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"
 	$(V)$(CC) $(_REQFLAGS) $(CFLAGS) $(OPTFLAGS) -c $< -o $@
 
-tests/bin/%: tests/%.c libowomath.a
-	@src=$<; src=$${src##*/}; printf " \033[1;32mCC\033[0m %s\n" "$$src"
+tests/bin/%: tests/%.c libuniqmath.a
+	@printf " \033[1;32mCC\033[0m $@\n"
 	$(V)$(CC) $(_REQFLAGS) $(CFLAGS) $(OPTFLAGS) -c $< -o tests/$*.o
-	$(V)$(CC) $(_REQFLAGS) $(LDFLAGS) $(OPTFLAGS) libowomath.a tests/$*.o -o $@
+	$(V)$(CC) $(_REQFLAGS) $(LDFLAGS) $(OPTFLAGS) libuniqmath.a tests/$*.o -o $@
 
 clean:
 	@printf "Cleaning up...\n"
-	$(V)rm -rf libowomath.a src/*.o tests/*.o tests/bin/*
+	$(V)rm -rf libuniqmath.a src/*.o tests/*.o tests/bin/*
 
 clangd:
 	@printf "Generating clangd config...\n"

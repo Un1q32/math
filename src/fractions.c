@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include <owomath.h>
+#include <uniqmath.h>
 
 struct fraction fracadd(struct fraction f1, struct fraction f2) {
   struct fraction f;

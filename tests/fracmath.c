@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <owomath.h>
+#include <uniqmath.h>
 
 int main(int argc, char *argv[]) {
   if (argc < 4) {
